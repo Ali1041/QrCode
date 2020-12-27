@@ -1,0 +1,6 @@
+.pic{
+    background:rgba(0, 0, 0,.85) url('../assets/logo512.png') no-repeat fixed center;
+    height: 100vh;
+    color:white;
+    
+}
