@@ -43,7 +43,7 @@ const Main=()=>{
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
-          facingMode={'rear'}
+          facingMode='rear'
           />
         <h1>{result}</h1>
         </HOC>
