@@ -59,7 +59,7 @@ const Home=()=>{
         logout()
     }
     if (redirect===true){
-        return <Redirect to='/login/' />
+        return <Redirect to='/' />
     }
 
     return(

@@ -61,11 +61,10 @@ const Login=()=>{
  
     }
     if (redirect_t===false && redirect===true){
-        console.log('here')
         return <Redirect to={'/main/'} />
     }
     else if (redirect_t===true && redirect===true){
-        return <Redirect to={'/'} /> 
+        return <Redirect to={'/home'} /> 
     }
  
  
