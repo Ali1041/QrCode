@@ -19,7 +19,7 @@ const Login=()=>{
             'Content-Type':'application/json'
         }
         async function login(){
-            const x = await axios.post('http://newqr.pythonanywhere.com/api/token/',body,{headers})
+            const x = await axios.post('https://newqr.pythonanywhere.com/api/token/',body,{headers})
             localStorage.setItem('access',x.data['access'])
             localStorage.setItem('refresh',x.data['refresh'])
             setdata({
@@ -38,7 +38,7 @@ const Login=()=>{
             'Content-Type':'application/json'
         }
         async function getUser(){
-            await axios.get('http://newqr.pythonanywhere.com/get-user/',{headers})
+            await axios.get('https://newqr.pythonanywhere.com/get-user/',{headers})
             .then((res)=>{
                 console.log(res.data)
                 value = res.data['Teacher']

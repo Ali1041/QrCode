@@ -35,7 +35,7 @@ const Signup=()=>{
         const body = JSON.stringify({'email':email,'username':username,'password':pass1})
         async function POST(){
             console.log(body)
-            await Axios.post('http://newqr.pythonanywhere.com/signup/',body,
+            await Axios.post('https://newqr.pythonanywhere.com/signup/',body,
             {
                 headers
             })

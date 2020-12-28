@@ -20,7 +20,7 @@ const Home=()=>{
                 'Authorization':`JWT ${token}`,
                 'Content-Type':'application/json'
             }
-            await axios.get('http://newqr.pythonanywhere.com/to-qr-code/'+id+'/',{headers})
+            await axios.get('https://newqr.pythonanywhere.com/to-qr-code/'+id+'/',{headers})
             .then((res)=>{
                 setdata({
                     course:res.data['name'],
@@ -43,13 +43,12 @@ const Home=()=>{
     const clicked=(e)=>{
         const token = localStorage.getItem('access')
         const refresh = localStorage.getItem('refresh')
-        console.log(refresh)
         const headers={
             'Authorization':`JWT ${token}`,
             'Content-Type':'application/json'
         }
         async function logout(){
-            const x = axios.post('http://newqr.pythonanywhere.com/logout/',JSON.stringify({refresh}),{headers})
+            const x = axios.post('https://newqr.pythonanywhere.com/logout/',JSON.stringify({refresh}),{headers})
             console.log(x.data)
             localStorage.removeItem('access','refresh')
             setdata({
@@ -73,7 +72,7 @@ const Home=()=>{
             </div>
             {showQr?(
                 <div className='mx-auto mt-5' style={{width:'fit-content'}}>
-                    <QRCode value={'http://newqr.pythonanywhere.com/'+course+'/'} size={300}  />
+                    <QRCode value={'https://newqr.pythonanywhere.com/'+course+'/'} size={300}  />
                 </div>
             )
             :null
