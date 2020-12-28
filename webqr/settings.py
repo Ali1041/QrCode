@@ -70,7 +70,7 @@ ROOT_URLCONF = 'webqr.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'build')],
+        'DIRS': [],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -125,8 +125,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-# refersh eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTYwODMyMDk1NywianRpIjoiYjQyODdjZTc0YTAzNDE3OWJhNWQxZjNiMzhiYzg0ZWMiLCJ1c2VyX2lkIjoxfQ.sVgn8YjrsdDUYGjZdI7Mmwm7YkYzngQbItdK364TWSY
-# access eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjA4MjM0NjE3LCJqdGkiOiJhMWE2MDNmZjZiMGM0MDRkYWJiNzE2NDZmMjVlZjI2YiIsInVzZXJfaWQiOjF9.sjUno_aUAsgRkYBcWh1C3n_8q3NwJePrKUQKb0Xlm-k
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
@@ -166,6 +164,3 @@ REST_FRAMEWORK = {
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
-]
