@@ -2,6 +2,7 @@ import React,{useState} from 'react';
 import HOC from './HOC';
 import {Link,Redirect} from 'react-router-dom';
 import axios from 'axios'
+import './style.css';
 
 const Login=()=>{
     const [data,setdata]=useState({
@@ -18,8 +19,7 @@ const Login=()=>{
             'Content-Type':'application/json'
         }
         async function login(){
-            const x = await axios.post('http://127.0.0.1:8000/api/token/',body,{headers})
-            console.log(x)
+            const x = await axios.post('http://newqr.pythonanywhere.com/api/token/',body,{headers})
             localStorage.setItem('access',x.data['access'])
             localStorage.setItem('refresh',x.data['refresh'])
             setdata({
@@ -38,7 +38,7 @@ const Login=()=>{
             'Content-Type':'application/json'
         }
         async function getUser(){
-            await axios.get('http://127.0.0.1:8000/get-user/',{headers})
+            await axios.get('http://newqr.pythonanywhere.com/get-user/',{headers})
             .then((res)=>{
                 console.log(res.data)
                 value = res.data['Teacher']
@@ -71,7 +71,7 @@ const Login=()=>{
  
     return(
         <HOC classname='d-flex'>
-            <div className='container border  p-5 align-self-center' style={{width:35+'%'}}>
+            <div className='container border  p-5 align-self-center responsive' style={{width:35+'%'}}>
                 <form method='POST' onSubmit={actionPost}>
                     <legend className='text-center'>Login</legend>
                     <input placeholder='Email' className='form-control' type='text' name='email' />

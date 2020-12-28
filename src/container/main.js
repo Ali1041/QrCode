@@ -21,7 +21,7 @@ const Main=()=>{
                 axios.get(`${data}`,{headers})
                 .then((res)=>{
                     setdata({
-                        result:'Your attendance has ben marked'
+                        result:'Your attendance has been marked'
                     })
                 })
             }
@@ -43,6 +43,7 @@ const Main=()=>{
           style={previewStyle}
           onError={handleError}
           onScan={handleScan}
+          facingMode={'rear'}
           />
         <h1>{result}</h1>
         </HOC>

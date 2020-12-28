@@ -3,6 +3,7 @@ import HOC from './HOC';
 import {Link,Redirect} from 'react-router-dom';
 import 'axios'
 import Axios from 'axios';
+import './style.css';
 
 const Signup=()=>{
     const [data,setdata] = useState({
@@ -34,12 +35,13 @@ const Signup=()=>{
         const body = JSON.stringify({'email':email,'username':username,'password':pass1})
         async function POST(){
             console.log(body)
-            await Axios.post('http://127.0.0.1:8000/signup/',body,
+            await Axios.post('http://newqr.pythonanywhere.com/signup/',body,
             {
                 headers
             })
             return <Redirect to='/login/'/>
         }
+    
         POST();
         
         e.preventDefault();
@@ -47,7 +49,7 @@ const Signup=()=>{
 
     return(
         <HOC classname='d-flex'>
-            <div className='container border p-5 align-self-center' style={{width:35+'%'}}>
+            <div className='container border p-5 align-self-center responsive' style={{width:35+'%'}}>
                 <form method='POST' onSubmit={actionSignUp}>
                     <legend className='text-center'>Sign Up</legend>
                     <input placeholder='Email' type='email' name='email' className='form-control'/>
