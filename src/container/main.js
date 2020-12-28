@@ -20,7 +20,9 @@ const Main=()=>{
                 }
                 axios.get(`${data}`,{headers})
                 .then((res)=>{
-                    console.log(res.data)
+                    setdata({
+                        result:'Your attendance has ben marked'
+                    })
                 })
             }
             markAttendance()
@@ -42,7 +44,7 @@ const Main=()=>{
           onError={handleError}
           onScan={handleScan}
           />
-        <p>{result}</p>
+        <h1>{result}</h1>
         </HOC>
     )
 }
