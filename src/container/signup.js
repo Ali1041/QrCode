@@ -1,15 +1,15 @@
 import React,{useState} from 'react';
 import HOC from './HOC';
 import {Link,Redirect} from 'react-router-dom';
-import 'axios'
-import Axios from 'axios';
+import axios from 'axios';
 import './style.css';
 
 const Signup=()=>{
     const [data,setdata] = useState({
-        error:false
+        error:false,
+        redirect:false
     })
-    const {error} = data
+    const {error,redirect} = data
 
     const actionSignUp=(e)=>{
         const pass1 = e.target.children[3].value;
@@ -35,18 +35,21 @@ const Signup=()=>{
         const body = JSON.stringify({'email':email,'username':username,'password':pass1})
         async function POST(){
             console.log(body)
-            await Axios.post('https://newqr.pythonanywhere.com/signup/',body,
-            {
-                headers
+            await axios.post('https://newqr.pythonanywhere.com/signup-user/',body,{headers})
+            setdata({
+                ...data,
+                redirect:true
             })
-            return <Redirect to='/login/'/>
         }
     
         POST();
         
         e.preventDefault();
     }
+    if(redirect===true){
+        return <Redirect to='/'/>
 
+    }
     return(
         <HOC classname='d-flex'>
             <div className='container border p-5 align-self-center responsive' style={{width:35+'%'}}>
