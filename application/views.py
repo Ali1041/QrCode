@@ -18,11 +18,6 @@ class CreateUser(generics.CreateAPIView):
     serializer_class = UserSerializers
     permission_classes = []
 
-    @method_decorator(ensure_csrf_cookie)
-    def post(self, request, *args, **kwargs):
-        print(request.POST)
-        return super().post(request, *args, **kwargs)
-
 
 def csrf(request):
     return JsonResponse({'csrf': get_token(request)})
@@ -39,7 +34,6 @@ class Qr(generics.RetrieveAPIView):
 
 class User(APIView):
     def get(self, request):
-        print(request.user)
         x = MyUser.objects.get(email=request.user)
         if x.is_staff:
             y = Course.objects.get(teacher=request.user)
@@ -52,7 +46,6 @@ class User(APIView):
 class MarkAttendance(APIView):
 
     def get(self,request,**kwargs):
-        print(request.user,self.request,request.GET)
         student = MyUser.objects.get(email=request.user)
         course = Course.objects.get(name=kwargs['name'])
         mark = CourseAttendance.objects.create(mark=True,student=student,course=course)
@@ -64,7 +57,6 @@ class Logout(APIView):
 
     def post(self, request, *args, **kwargs):
         refersh_token = request.data['refresh']
-        print(refersh_token)
         token = RefreshToken(refersh_token)
         token.blacklist()
         return JsonResponse({'status': '200'})
