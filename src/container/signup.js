@@ -63,7 +63,7 @@ const Signup=()=>{
                     <button className='btn btn-primary w-100'>
                         Sign up
                     </button>
-                    <small><Link to='/login/'>Login Here</Link></small>
+                    <small><Link to='/'>Login Here</Link></small>
                     
                 </form>
             </div>
